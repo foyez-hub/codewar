@@ -1,0 +1,27 @@
+  <div class="row">
+    <div style="width: 100%;margin-left:30%;background-color: transparent" class="col">
+        <div class="row">
+          <div class="col-s ml-1" style="height:106px;width: 39px; background-color: #e48d00;">
+            
+          </div>
+          <div class="col mt-4">
+            <h1 class="text-center">WELCOME TO CODEWAR</h1>
+            <p class="text-center">Sign up with your details</p>
+          </div>
+        </div>
+----------
+ echo '<form action="submitaction.php" method="post">
+
+      <div class="maindiv">
+          <div id="rightdiv">
+              <h2 style="text-align: center">Solution</h2>
+  
+              <input type="hidden" name="problemid" value="' . $row['problemid'] . '">
+              <input type="hidden" name="problemname" value="' . $row['title'] . '">
+  
+              <textarea name="code" id="codearea" placeholder="Write your code here..."></textarea><br />
+              <button type="submit" id="codebutton">Submit</button>
+          </div>
+      </div>
+  
+  </form>';

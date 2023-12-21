@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+   
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LeetCode-like Page</title>
+    <style>
+
+.navbar{
+    
+    background-color:#465962;
+    
+}
+.nav-link{
+    color:#fff
+}
+.navbar-nav > li{
+    margin-right:50px;
+}
+.indexPageLeft{
+  /* background-image:url({{url('frontend/img/indximg.png')}}) */
+}
+
+</style>
+
+    <style>
+      .problem-section {
+        margin-bottom: 20px;
+      }
+
+     
+
+      #leftdiv {
+        background-color: #192932;
+        float: left;
+        width: 70%;
+        height: 100%;
+        margin-left: 5%;
+        padding-left: 20px;
+        border: 1px solid gray;
+      }
+
+      #rightdiv {
+        background-color: #192932;
+        float: right;
+        width: 18%;
+        margin-right: 2%;
+        height: 70%;
+        margin-top: 4%;
+        border: 1px solid gray;
+      }
+
+      .maindiv {
+        background-color: #223742;
+        height: 700px;
+        width: 100%;
+        color: white;
+       
+      }
+
+      #codearea {
+        height: 300px;
+        width: 200px;
+        margin-left: 1%;
+      }
+
+      #codebutton {
+        margin-left: 31%;
+        color: black;
+        width: 100px;
+        background-color:orange;
+      }
+
+      #codebutton:hover {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body style="background-color:#213742; color:#fff">
+
+<nav class="navbar navbar-expand-lg ">
+  <!-- <a class="nav-link ml-5 mr-5" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+  <a class="navbar-brand ml-5 mr-5" href="{{url('/')}}"><img src="{{url('frontend/img/logo.png')}}" width="90" height="50"></a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" href="{{url('/')}}">HOME</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="{{url('/profile')}}">PROFILE</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="{{url('/problem')}}#">PROBLEMSET</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="{{url('/contest')}}">CONTEST</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <!-- <button class="btn  my-2 my-sm-0" type="submit">Search</button> -->
+    </form>
+    <a class="nav-item nav-link ml-3 mr-5" href="#">HELP</a>
+  </div>
+</nav>
+    
+
+    <div class="maindiv">
+      <div id="rightdiv">
+        <h2 style="text-align: center">Solution</h2>
+
+        <textarea id="codearea" placeholder="Write your code here..."></textarea
+        ><br />
+        <button id="codebutton" onclick="submitSolution()"> 
+        <a class="nav-link" href="submit.html">Submit</a></button>
+      </div>
+
+      <div id="leftdiv">
+        <div class="problem-section" id="problem-description">
+          <h2>Two Sum</h2>
+          <p>
+            Given an array of integers nums and an integer target, return
+            indices of the two numbers such that they add up to target. You may
+            assume that each input would have exactly one solution, and you may
+            not use the same element twice. You can return the answer in any
+            order
+          </p>
+        </div>
+
+        <div class="problem-section" id="problem-examples">
+          <h2>Examples</h2>
+          <!-- <p>Provide examples to illustrate the problem.</p> -->
+          <!-- <pre> -->
+            <label>
+                    Example 1:
+                    Input: nums = [2,7,11,15], target = 9
+                    Output: [0,1]
+                    Explanation: Because nums[0] + nums[1] == 9, we return [0, 1
+                    Example 2:
+                    Input: nums = [3,2,4], target = 6
+                    Output: [1,2]
+                    Example 3:
+                    Input: nums = [3,3], target = 6
+                    Output: [0,1]
+                    </label>
+
+                
+
+        </div>
+
+        <div class="problem-section" id="problem-constraints">
+          <h2>Constraints</h2>
+          <!-- <p>State any constraints or limitations for the problem.</p> -->
+          <ul>
+
+            <li>2 <= nums.length <= 104</li>
+            <li>-10^9 <= nums[i] <= 10^9</li>
+            <li>-10^9 <= target <= 10^9</li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
