@@ -45,6 +45,9 @@ if ($result->num_rows > 0) {
 ?>
 
 
+
+
+
 <!DOCTYPE html>
 
 
@@ -105,7 +108,7 @@ if ($result->num_rows > 0) {
       float: right;
       width: 20%;
       margin-right: 2%;
-      height: 80%;
+      height: 90%;
       margin-top: 2%;
       border: 1px solid gray;
     }
@@ -123,12 +126,19 @@ if ($result->num_rows > 0) {
     }
 
     #codearea {
-      height: 80%;
+      height: 40%;
       width: 98%;
       margin-left: 1%;
     }
 
     #codebutton {
+      margin-left: 31%;
+      color: black;
+      width: 100px;
+      background-color: orange;
+      height: 30px;
+    }
+    #runbutton {
       margin-left: 31%;
       color: black;
       width: 100px;
@@ -196,6 +206,12 @@ if ($result->num_rows > 0) {
       cursor: pointer;
       background-color: #E58D00;
     }
+    #output{
+      height:25%;
+      width: 100%;
+      
+    }
+
   </style>
 </head>
 
@@ -290,15 +306,32 @@ if ($result->num_rows > 0) {
       echo '<div class="maindiv">
 
       <div id="rightdiv">
+
+      <form id="cppForm" enctype="multipart/form-data">
+
         <h2 style="text-align: center">Solution</h2>
         <input type="hidden" id="problemid" value="' . $row['problemid'] . '">
         <input type="hidden" id="problemname" value="' . $row['title'] . '">
-        <textarea value="nocode" id="codearea" placeholder="Write your code here..."></textarea
-        ><br />
-        <button id="codebutton">
-        Submit
+        <textarea name="cppCode" value="nocode" id="codearea" placeholder="Write your code here..."></textarea
 
-    </button>
+        <label for="cppFile">or Upload C++ File:</label>
+
+        <input type="file" name="cppFile" id="cppFile" accept=".cpp"><br>
+        <button id="runbutton" type="button" onclick="runCode()">Run Code</button>
+
+    </form>
+
+
+    <br>
+
+    <label>Output</label>
+    <textarea id="output" >hello </textarea>
+    <button id="codebutton">
+
+    Submit
+
+</button>
+
       </div>
 
 
@@ -355,6 +388,26 @@ if ($result->num_rows > 0) {
 
 
 
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function runCode() {
+            var formData = new FormData($('#cppForm')[0]);
+
+            $.ajax({
+                url: 'run_cpp.php',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    $('#output').html(response);
+                }
+            });
+        }
+    </script>
+
+
+
 
 
   <script>
@@ -395,6 +448,8 @@ if ($result->num_rows > 0) {
       });
     });
   </script>
+
+  
 
 </body>
 
